@@ -1,0 +1,36 @@
+.header{
+    background-color: antiquewhite;
+    color: brown;
+}
+.header:hover{
+    background-color: black;
+    color: aliceblue;
+}
+#one{
+    color: blueviolet;
+
+}
+#two{
+    color: cadetblue;
+}
+#three{
+    color: burlywood;
+}
+#four,#five,#six{
+    color: chocolate;
+}
+*{
+    color: blueviolet;
+
+}
+.link{
+    text-decoration: wavy;
+    color: burlywood;
+    background-color: aquamarine;
+    padding: 4px;
+    border-radius: 1px;
+}
+.link:hover{
+    color: rgb(red, green, blue);
+    color: palegoldenrod;
+}
