@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1 id="message">hello world</h1> 
+   <button onclick="changeText()">click me</button>
+   <input type="text"id="name"placeholder="enter a name">
+   <button onclick="addname()">add</button>
+   <ol id="display">
+    <li>RAJA</li>
+
+   </ol>
+   <script>
+    function addname(){
+        const name= document.getElementById("name").value;
+        const li=document.createElement(`li`)
+        li.textContent=name
+        document.getElementById(`display`).append(li)
+    }
+    function changeText(){
+        const elem =document.getElementById("message")
+        elem.innerText="HELLO KPRCAS"
+        elem.style.color="green"
+        elem.style.fontSize="24px"
+    }
+
+   </script>
+</body>
+</html>
