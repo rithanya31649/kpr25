@@ -1,0 +1,86 @@
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fees Payment Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: cadetblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: cornflowerblue;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px chocolate;
+            width: 300px;
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #684caf;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: darkgoldenrod;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Fees Payment Form</h2>
+        <form id="feesForm">
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="rollNo" placeholder="Roll Number" required>
+            <input type="number" id="fees" placeholder="Fees Paid (₹)" required>
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function submitForm() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let rollNo = document.getElementById("rollNo").value;
+            let fees = document.getElementById("fees").value;
+
+            if (name && email && rollNo && fees) {
+                // Create a file content
+                let fileContent = `Payment Details\n\nName: ${name}\nEmail: ${email}\nRoll Number: ${rollNo}\nFees Paid: ₹${fees}`;
+
+                // Create a Blob object and a URL for the file
+                let blob = new Blob([fileContent], { type: "text/plain" });
+                let url = URL.createObjectURL(blob);
+
+                // Create a temporary anchor element to trigger file download
+                let a = document.createElement("a");
+                a.href = url;
+                a.download = "Fees_Payment_Details.txt";
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            } else {
+                alert("Please fill in all fields before submitting.");
+            }
+        }
+    </script>
+</body>
+</html>
